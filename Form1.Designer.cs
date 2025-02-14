@@ -1,0 +1,141 @@
+﻿namespace PasswordHelper;
+
+partial class Form1
+{
+    /// <summary>
+    ///  Required designer variable.
+    /// </summary>
+    private System.ComponentModel.IContainer components = null;
+
+    /// <summary>
+    ///  Clean up any resources being used.
+    /// </summary>
+    /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+    protected override void Dispose(bool disposing)
+    {
+        if (disposing && (components != null))
+        {
+            components.Dispose();
+        }
+        base.Dispose(disposing);
+    }
+
+    #region Windows Form Designer generated code
+
+    /// <summary>
+    ///  Required method for Designer support - do not modify
+    ///  the contents of this method with the code editor.
+    /// </summary>
+    private void InitializeComponent()
+    {
+        assessButton = new Button();
+        generateButton = new Button();
+        enterPasswordTextBox = new RichTextBox();
+        generatePasswordTextBox = new RichTextBox();
+        enterPasswordLabel = new Label();
+        generatePasswordLabel = new Label();
+        passwordStrengthBar = new ProgressBar();
+        strengthLabel = new Label();
+        SuspendLayout();
+        // 
+        // assessButton
+        // 
+        assessButton.Location = new Point(527, 97);
+        assessButton.Name = "assessButton";
+        assessButton.Size = new Size(118, 36);
+        assessButton.TabIndex = 0;
+        assessButton.Text = "Assess Strength";
+        assessButton.UseVisualStyleBackColor = true;
+        assessButton.Click += assessButton_Click;
+        // 
+        // generateButton
+        // 
+        generateButton.Location = new Point(527, 259);
+        generateButton.Name = "generateButton";
+        generateButton.Size = new Size(118, 36);
+        generateButton.TabIndex = 1;
+        generateButton.Text = "Generate Password";
+        generateButton.UseVisualStyleBackColor = true;
+        generateButton.Click += generateButton_Click;
+        // 
+        // enterPasswordTextBox
+        // 
+        enterPasswordTextBox.Location = new Point(226, 97);
+        enterPasswordTextBox.Name = "enterPasswordTextBox";
+        enterPasswordTextBox.Size = new Size(258, 36);
+        enterPasswordTextBox.TabIndex = 2;
+        enterPasswordTextBox.Text = "";
+        // 
+        // generatePasswordTextBox
+        // 
+        generatePasswordTextBox.Location = new Point(226, 258);
+        generatePasswordTextBox.Name = "generatePasswordTextBox";
+        generatePasswordTextBox.Size = new Size(258, 36);
+        generatePasswordTextBox.TabIndex = 3;
+        generatePasswordTextBox.Text = "";
+        // 
+        // enterPasswordLabel
+        // 
+        enterPasswordLabel.AutoSize = true;
+        enterPasswordLabel.Location = new Point(71, 108);
+        enterPasswordLabel.Name = "enterPasswordLabel";
+        enterPasswordLabel.Size = new Size(115, 15);
+        enterPasswordLabel.TabIndex = 4;
+        enterPasswordLabel.Text = "Enter Password Here";
+        // 
+        // generatePasswordLabel
+        // 
+        generatePasswordLabel.AutoSize = true;
+        generatePasswordLabel.Location = new Point(51, 270);
+        generatePasswordLabel.Name = "generatePasswordLabel";
+        generatePasswordLabel.Size = new Size(135, 15);
+        generatePasswordLabel.TabIndex = 5;
+        generatePasswordLabel.Text = "Generate Password Here";
+        // 
+        // passwordStrengthBar
+        // 
+        passwordStrengthBar.Location = new Point(226, 163);
+        passwordStrengthBar.Name = "passwordStrengthBar";
+        passwordStrengthBar.Size = new Size(258, 32);
+        passwordStrengthBar.TabIndex = 6;
+        // 
+        // strengthLabel
+        // 
+        strengthLabel.AutoSize = true;
+        strengthLabel.Location = new Point(81, 170);
+        strengthLabel.Name = "strengthLabel";
+        strengthLabel.Size = new Size(105, 15);
+        strengthLabel.TabIndex = 7;
+        strengthLabel.Text = "Password Strength";
+        // 
+        // Form1
+        // 
+        AutoScaleDimensions = new SizeF(7F, 15F);
+        AutoScaleMode = AutoScaleMode.Font;
+        ClientSize = new Size(800, 450);
+        Controls.Add(strengthLabel);
+        Controls.Add(passwordStrengthBar);
+        Controls.Add(generatePasswordLabel);
+        Controls.Add(enterPasswordLabel);
+        Controls.Add(generatePasswordTextBox);
+        Controls.Add(enterPasswordTextBox);
+        Controls.Add(generateButton);
+        Controls.Add(assessButton);
+        Name = "Form1";
+        Text = "Form1";
+        Load += Form1_Load;
+        ResumeLayout(false);
+        PerformLayout();
+    }
+
+    #endregion
+
+    private Button assessButton;
+    private Button generateButton;
+    private RichTextBox enterPasswordTextBox;
+    private RichTextBox generatePasswordTextBox;
+    private Label enterPasswordLabel;
+    private Label generatePasswordLabel;
+    private ProgressBar passwordStrengthBar;
+    private Label strengthLabel;
+}
