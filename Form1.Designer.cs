@@ -36,11 +36,13 @@ partial class Form1
         generatePasswordLabel = new Label();
         passwordStrengthBar = new ProgressBar();
         strengthLabel = new Label();
+        passwordLengthTextBox = new RichTextBox();
+        passwordLengthLabel = new Label();
         SuspendLayout();
         // 
         // assessButton
         // 
-        assessButton.Location = new Point(527, 97);
+        assessButton.Location = new Point(559, 104);
         assessButton.Name = "assessButton";
         assessButton.Size = new Size(118, 36);
         assessButton.TabIndex = 0;
@@ -50,7 +52,7 @@ partial class Form1
         // 
         // generateButton
         // 
-        generateButton.Location = new Point(527, 259);
+        generateButton.Location = new Point(559, 290);
         generateButton.Name = "generateButton";
         generateButton.Size = new Size(118, 36);
         generateButton.TabIndex = 1;
@@ -60,7 +62,7 @@ partial class Form1
         // 
         // enterPasswordTextBox
         // 
-        enterPasswordTextBox.Location = new Point(226, 97);
+        enterPasswordTextBox.Location = new Point(258, 104);
         enterPasswordTextBox.Name = "enterPasswordTextBox";
         enterPasswordTextBox.Size = new Size(258, 36);
         enterPasswordTextBox.TabIndex = 2;
@@ -68,7 +70,7 @@ partial class Form1
         // 
         // generatePasswordTextBox
         // 
-        generatePasswordTextBox.Location = new Point(226, 258);
+        generatePasswordTextBox.Location = new Point(258, 290);
         generatePasswordTextBox.Name = "generatePasswordTextBox";
         generatePasswordTextBox.Size = new Size(258, 36);
         generatePasswordTextBox.TabIndex = 3;
@@ -77,7 +79,7 @@ partial class Form1
         // enterPasswordLabel
         // 
         enterPasswordLabel.AutoSize = true;
-        enterPasswordLabel.Location = new Point(71, 108);
+        enterPasswordLabel.Location = new Point(103, 115);
         enterPasswordLabel.Name = "enterPasswordLabel";
         enterPasswordLabel.Size = new Size(115, 15);
         enterPasswordLabel.TabIndex = 4;
@@ -86,7 +88,7 @@ partial class Form1
         // generatePasswordLabel
         // 
         generatePasswordLabel.AutoSize = true;
-        generatePasswordLabel.Location = new Point(51, 270);
+        generatePasswordLabel.Location = new Point(258, 272);
         generatePasswordLabel.Name = "generatePasswordLabel";
         generatePasswordLabel.Size = new Size(135, 15);
         generatePasswordLabel.TabIndex = 5;
@@ -94,7 +96,7 @@ partial class Form1
         // 
         // passwordStrengthBar
         // 
-        passwordStrengthBar.Location = new Point(226, 163);
+        passwordStrengthBar.Location = new Point(258, 170);
         passwordStrengthBar.Name = "passwordStrengthBar";
         passwordStrengthBar.Size = new Size(258, 32);
         passwordStrengthBar.TabIndex = 6;
@@ -102,17 +104,36 @@ partial class Form1
         // strengthLabel
         // 
         strengthLabel.AutoSize = true;
-        strengthLabel.Location = new Point(81, 170);
+        strengthLabel.Location = new Point(113, 177);
         strengthLabel.Name = "strengthLabel";
         strengthLabel.Size = new Size(105, 15);
         strengthLabel.TabIndex = 7;
         strengthLabel.Text = "Password Strength";
+        // 
+        // passwordLengthTextBox
+        // 
+        passwordLengthTextBox.Location = new Point(103, 290);
+        passwordLengthTextBox.Name = "passwordLengthTextBox";
+        passwordLengthTextBox.Size = new Size(122, 36);
+        passwordLengthTextBox.TabIndex = 8;
+        passwordLengthTextBox.Text = "";
+        // 
+        // passwordLengthLabel
+        // 
+        passwordLengthLabel.AutoSize = true;
+        passwordLengthLabel.Location = new Point(103, 272);
+        passwordLengthLabel.Name = "passwordLengthLabel";
+        passwordLengthLabel.Size = new Size(97, 15);
+        passwordLengthLabel.TabIndex = 9;
+        passwordLengthLabel.Text = "Password Length";
         // 
         // Form1
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(800, 450);
+        Controls.Add(passwordLengthLabel);
+        Controls.Add(passwordLengthTextBox);
         Controls.Add(strengthLabel);
         Controls.Add(passwordStrengthBar);
         Controls.Add(generatePasswordLabel);
@@ -138,4 +159,6 @@ partial class Form1
     private Label generatePasswordLabel;
     private ProgressBar passwordStrengthBar;
     private Label strengthLabel;
+    private RichTextBox passwordLengthTextBox;
+    private Label passwordLengthLabel;
 }

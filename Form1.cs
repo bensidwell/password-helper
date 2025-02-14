@@ -27,7 +27,7 @@ public partial class Form1 : Form
 
     private void Form1_Load(object sender, EventArgs e)
     {
-
+        passwordLengthTextBox.Text = "15";
     }
 
 
@@ -43,11 +43,20 @@ public partial class Form1 : Form
     /// <returns>The randomly generated password</returns>
     private string generatePassword()
     {
+        // Check for custom password length
+        int passwordLength;
+        if (!int.TryParse(passwordLengthTextBox.Text, out passwordLength))
+        {
+            passwordLength = DEFAULT_PASSWORD_LENGTH;
+            passwordLengthTextBox.Text = "INVALID LENGTH\nLength reset to 15";
+        }
+
+
         int numberOfUniqueCharacters = (ALPHABET.Length * 2) + NUMBERS.Length + SYMBOLS.Length;
 
         // Generate the password
         string password = "";
-        for (int i = 0; i < DEFAULT_PASSWORD_LENGTH; i++)
+        for (int i = 0; i < passwordLength; i++)
         {
             int nextSymbol = RANDOM.Next(numberOfUniqueCharacters);
             if (nextSymbol < ALPHABET.Length) // lower case letter
