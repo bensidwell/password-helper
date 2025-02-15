@@ -1,3 +1,5 @@
+using System.Text.RegularExpressions;
+
 namespace PasswordHelper;
 
 public partial class Form1 : Form
@@ -85,5 +87,36 @@ public partial class Form1 : Form
         // Pull in the user's password and assess it's strength
         string userPassword = enterPasswordTextBox.Text;
 
+        if (isWeak(userPassword))
+        {
+            strengthLabel.Text = "Password Strength = Weak";
+        }
+        else
+        {
+            strengthLabel.Text = "Password Strength = Not Weak";
+        }
+    }
+
+    /// <summary>
+    /// Checks if the given password is "weak" meaning,
+    /// it is shorter than 6 characters or is shorter than
+    /// 15 characters and is only letters.
+    /// </summary>
+    /// <param name="password"></param>
+    /// <returns>True if the password is weak, false otherwise</returns>
+    private bool isWeak(string password)
+    {
+        string stringPattern = @"[a-zA-Z]+";
+        string regexPattern = $"^{stringPattern}$";
+        // Check if password is only letters and less than 15 letters
+        if (password.Length < 15 && Regex.IsMatch(password, regexPattern))
+            return true;
+
+        // Check if password is too short
+        if (password.Length < 6)
+            return true;
+
+        // Password passed checks, it is above weak
+        return false;
     }
 }

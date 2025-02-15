@@ -80,7 +80,7 @@ partial class Form1
         // enterPasswordLabel
         // 
         enterPasswordLabel.AutoSize = true;
-        enterPasswordLabel.Location = new Point(92, 141);
+        enterPasswordLabel.Location = new Point(71, 141);
         enterPasswordLabel.Name = "enterPasswordLabel";
         enterPasswordLabel.Size = new Size(115, 15);
         enterPasswordLabel.TabIndex = 4;
@@ -105,15 +105,15 @@ partial class Form1
         // strengthLabel
         // 
         strengthLabel.AutoSize = true;
-        strengthLabel.Location = new Point(102, 203);
+        strengthLabel.Location = new Point(71, 207);
         strengthLabel.Name = "strengthLabel";
-        strengthLabel.Size = new Size(105, 15);
+        strengthLabel.Size = new Size(140, 15);
         strengthLabel.TabIndex = 7;
-        strengthLabel.Text = "Password Strength";
+        strengthLabel.Text = "Password Strength: None";
         // 
         // passwordLengthTextBox
         // 
-        passwordLengthTextBox.Location = new Point(92, 316);
+        passwordLengthTextBox.Location = new Point(71, 316);
         passwordLengthTextBox.Name = "passwordLengthTextBox";
         passwordLengthTextBox.Size = new Size(122, 36);
         passwordLengthTextBox.TabIndex = 8;
@@ -122,7 +122,7 @@ partial class Form1
         // passwordLengthLabel
         // 
         passwordLengthLabel.AutoSize = true;
-        passwordLengthLabel.Location = new Point(92, 298);
+        passwordLengthLabel.Location = new Point(71, 298);
         passwordLengthLabel.Name = "passwordLengthLabel";
         passwordLengthLabel.Size = new Size(97, 15);
         passwordLengthLabel.TabIndex = 9;
