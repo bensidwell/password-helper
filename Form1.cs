@@ -5,7 +5,10 @@ namespace PasswordHelper;
 public partial class Form1 : Form
 {
     // Random generator with a random seed
-    private Random RANDOM = new Random(Guid.NewGuid().GetHashCode());
+    private readonly Random RANDOM = new Random(Guid.NewGuid().GetHashCode());
+
+    // Regex pattern to seperate numbers, "?", "!", uppercase, and lower case characters
+    private readonly Regex PATTERN = new Regex(@"\d+|\?+|\!+|[A-Z]+");
 
     // The alphabet for pulling letters from
     private readonly char[] ALPHABET =
@@ -20,7 +23,7 @@ public partial class Form1 : Form
         {'!','?'};
 
     // Default password length
-    private readonly int DEFAULT_PASSWORD_LENGTH = 15;
+    private readonly int DEFAULT_PASSWORD_LENGTH = 20;
 
     public Form1()
     {
@@ -29,7 +32,7 @@ public partial class Form1 : Form
 
     private void Form1_Load(object sender, EventArgs e)
     {
-        passwordLengthTextBox.Text = "15";
+        passwordLengthTextBox.Text = DEFAULT_PASSWORD_LENGTH.ToString();
     }
 
 
@@ -39,24 +42,21 @@ public partial class Form1 : Form
     }
 
     /// <summary>
-    /// Generates a random password of 15 characters with letters (upper and lowercase), 
-    /// numbers, and a symbol or two.
+    /// Generates a random password of given length or DEFAULT_PASSWORD_LENGTH 
+    /// characters with letters (upper and lowercase), numbers, and a symbol or two.
     /// </summary>
     /// <returns>The randomly generated password</returns>
     private string generatePassword()
     {
         // Check for custom password length
-        int passwordLength;
-        if (!int.TryParse(passwordLengthTextBox.Text, out passwordLength))
+        if (!int.TryParse(passwordLengthTextBox.Text, out int passwordLength))
         {
             passwordLength = DEFAULT_PASSWORD_LENGTH;
             passwordLengthTextBox.Text = "INVALID LENGTH\nLength reset to 15";
         }
 
-
-        int numberOfUniqueCharacters = (ALPHABET.Length * 2) + NUMBERS.Length + SYMBOLS.Length;
-
         // Generate the password
+        int numberOfUniqueCharacters = (ALPHABET.Length * 2) + NUMBERS.Length + SYMBOLS.Length;
         string password = "";
         for (int i = 0; i < passwordLength; i++)
         {
@@ -103,6 +103,13 @@ public partial class Form1 : Form
         }
     }
 
+    /// <summary>
+    /// Checks the validity of the given string as a password.
+    /// Password is invalid if it contains a space, newline character,
+    /// or tab character. 
+    /// </summary>
+    /// <param name="password">The string to check the validity of as a password</param>
+    /// <returns>True if the password is valid, false otherwise</returns>
     private bool passwordIsValid(string password)
     {
         return password.Contains(' ') 
@@ -113,12 +120,12 @@ public partial class Form1 : Form
     /// <summary>
     /// Assess the strength of the given string based on
     /// three major categories:
-    ///     Length
-    ///     Character diversity
-    ///     Order of characters
+    ///     Length                (35)
+    ///     Character diversity   (35)
+    ///     Order of characters   (30)
     /// </summary>
-    /// <param name="password"></param>
-    /// <returns></returns>
+    /// <param name="password">The string to assess the strength of as a password</param>
+    /// <returns>An int 1-100 describing the password's strength</returns>
     private int assessStrength(string password)
     {
         int score = 0;
@@ -126,26 +133,27 @@ public partial class Form1 : Form
         // Rate the length
         if (password.Length == 0)
             return 0;
-        if (password.Length < 5)
-            score += 5;
-        else if (password.Length < 10)
-            score += 15;
+        if (password.Length < 8)
+            score += 10;
+        else if (password.Length < 15)
+            score += 25;
         else
-            score += 30;
+            score += 35;
 
         // Rate the diversity of characters
         if (password.All(ch => char.IsLetter(ch)))
-            score += 10; // Password is only letters
+            score += 5; // Password is only letters
         else if (password.All(ch => char.IsDigit(ch)))
             score += 10; // Password is only numbers
         else if (password.All(ch => char.IsLetterOrDigit(ch)))
-            score += 20; // Password is numbers and letters
+            score += 25; // Password is numbers and letters
+        else
+            score += 35; // Password has symbols in it
 
         // Rate the order of the characters
-        Regex numberRegex = new Regex(@"\d+||[A-Z]+||\?+||\!+");
-        string[] passwordParts = numberRegex.Split(password);
-        if (passwordParts.Length * 5 - 5 > 50)
-            score += 50;
+        string[] passwordParts = PATTERN.Split(password);
+        if (passwordParts.Length * 5 - 5 > 30)
+            score += 30;
         else
             score += passwordParts.Length * 5 - 5;
 
