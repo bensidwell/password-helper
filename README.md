@@ -11,6 +11,8 @@ To run this program select the v1.0 release and install the "PasswordHelper.zip"
 ## Usage
 The Password Helper can be used to get a general idea of what a strong password looks like both by rating custom passwords and generating random passwords. Do NOT use this application or its output to secure sensitive information. 
 
+![Screenshot of someone testing the strength of a password using Password Helper](passwordHelperExample.png)
+
 ## Credits
 This application was made solely by me, [Benjamin Sidwell](https://github.com/bensidwell).
 
