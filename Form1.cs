@@ -82,41 +82,73 @@ public partial class Form1 : Form
         return password;
     }
 
+
     private void assessButton_Click(object sender, EventArgs e)
     {
         // Pull in the user's password and assess it's strength
         string userPassword = enterPasswordTextBox.Text;
 
-        if (isWeak(userPassword))
+        // Check validity of the password
+        if (passwordIsValid(userPassword))
         {
-            strengthLabel.Text = "Password Strength = Weak";
+            strengthLabel.Text = "Password Strength: Invalid";
+            passwordStrengthBar.Value = 0;
         }
         else
         {
-            strengthLabel.Text = "Password Strength = Not Weak";
+            // Assess the strength of the password
+            int score = assessStrength(userPassword);
+            strengthLabel.Text = "Password Strength: " + score;
+            passwordStrengthBar.Value = score;
         }
     }
 
+    private bool passwordIsValid(string password)
+    {
+        return password.Contains(' ') 
+            || password.Contains('\n')
+            || password.Contains('\t');
+    }
+
     /// <summary>
-    /// Checks if the given password is "weak" meaning,
-    /// it is shorter than 6 characters or is shorter than
-    /// 15 characters and is only letters.
+    /// Assess the strength of the given string based on
+    /// three major categories:
+    ///     Length
+    ///     Character diversity
+    ///     Order of characters
     /// </summary>
     /// <param name="password"></param>
-    /// <returns>True if the password is weak, false otherwise</returns>
-    private bool isWeak(string password)
+    /// <returns></returns>
+    private int assessStrength(string password)
     {
-        string stringPattern = @"[a-zA-Z]+";
-        string regexPattern = $"^{stringPattern}$";
-        // Check if password is only letters and less than 15 letters
-        if (password.Length < 15 && Regex.IsMatch(password, regexPattern))
-            return true;
+        int score = 0;
 
-        // Check if password is too short
-        if (password.Length < 6)
-            return true;
+        // Rate the length
+        if (password.Length == 0)
+            return 0;
+        if (password.Length < 5)
+            score += 5;
+        else if (password.Length < 10)
+            score += 15;
+        else
+            score += 30;
 
-        // Password passed checks, it is above weak
-        return false;
+        // Rate the diversity of characters
+        if (password.All(ch => char.IsLetter(ch)))
+            score += 10; // Password is only letters
+        else if (password.All(ch => char.IsDigit(ch)))
+            score += 10; // Password is only numbers
+        else if (password.All(ch => char.IsLetterOrDigit(ch)))
+            score += 20; // Password is numbers and letters
+
+        // Rate the order of the characters
+        Regex numberRegex = new Regex(@"\d+||[A-Z]+||\?+||\!+");
+        string[] passwordParts = numberRegex.Split(password);
+        if (passwordParts.Length * 5 - 5 > 50)
+            score += 50;
+        else
+            score += passwordParts.Length * 5 - 5;
+
+        return score;
     }
 }
