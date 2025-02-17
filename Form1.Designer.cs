@@ -40,14 +40,14 @@ partial class Form1
         passwordLengthLabel = new Label();
         disclaimerLabel = new Label();
         disclaimerLabel2 = new Label();
+        errorLabel = new Label();
         SuspendLayout();
         // 
         // assessButton
         // 
-        assessButton.Location = new Point(939, 260);
-        assessButton.Margin = new Padding(5, 6, 5, 6);
+        assessButton.Location = new Point(548, 122);
         assessButton.Name = "assessButton";
-        assessButton.Size = new Size(202, 72);
+        assessButton.Size = new Size(118, 36);
         assessButton.TabIndex = 0;
         assessButton.Text = "Assess Strength";
         assessButton.UseVisualStyleBackColor = true;
@@ -55,10 +55,9 @@ partial class Form1
         // 
         // generateButton
         // 
-        generateButton.Location = new Point(939, 632);
-        generateButton.Margin = new Padding(5, 6, 5, 6);
+        generateButton.Location = new Point(548, 308);
         generateButton.Name = "generateButton";
-        generateButton.Size = new Size(202, 72);
+        generateButton.Size = new Size(118, 36);
         generateButton.TabIndex = 1;
         generateButton.Text = "Generate Password";
         generateButton.UseVisualStyleBackColor = true;
@@ -66,103 +65,104 @@ partial class Form1
         // 
         // enterPasswordTextBox
         // 
-        enterPasswordTextBox.Location = new Point(423, 260);
-        enterPasswordTextBox.Margin = new Padding(5, 6, 5, 6);
+        enterPasswordTextBox.Location = new Point(247, 122);
         enterPasswordTextBox.Name = "enterPasswordTextBox";
-        enterPasswordTextBox.Size = new Size(439, 68);
+        enterPasswordTextBox.Size = new Size(258, 36);
         enterPasswordTextBox.TabIndex = 2;
         enterPasswordTextBox.Text = "";
         // 
         // generatePasswordTextBox
         // 
-        generatePasswordTextBox.Location = new Point(423, 632);
-        generatePasswordTextBox.Margin = new Padding(5, 6, 5, 6);
+        generatePasswordTextBox.Location = new Point(247, 316);
         generatePasswordTextBox.Name = "generatePasswordTextBox";
-        generatePasswordTextBox.Size = new Size(439, 68);
+        generatePasswordTextBox.Size = new Size(258, 24);
         generatePasswordTextBox.TabIndex = 3;
         generatePasswordTextBox.Text = "";
         // 
         // enterPasswordLabel
         // 
         enterPasswordLabel.AutoSize = true;
-        enterPasswordLabel.Location = new Point(122, 282);
-        enterPasswordLabel.Margin = new Padding(5, 0, 5, 0);
+        enterPasswordLabel.Location = new Point(71, 133);
         enterPasswordLabel.Name = "enterPasswordLabel";
-        enterPasswordLabel.Size = new Size(203, 30);
+        enterPasswordLabel.Size = new Size(115, 15);
         enterPasswordLabel.TabIndex = 4;
         enterPasswordLabel.Text = "Enter Password Here";
         // 
         // generatePasswordLabel
         // 
         generatePasswordLabel.AutoSize = true;
-        generatePasswordLabel.Location = new Point(423, 596);
-        generatePasswordLabel.Margin = new Padding(5, 0, 5, 0);
+        generatePasswordLabel.Location = new Point(247, 298);
         generatePasswordLabel.Name = "generatePasswordLabel";
-        generatePasswordLabel.Size = new Size(239, 30);
+        generatePasswordLabel.Size = new Size(135, 15);
         generatePasswordLabel.TabIndex = 5;
         generatePasswordLabel.Text = "Generate Password Here";
         // 
         // passwordStrengthBar
         // 
-        passwordStrengthBar.Location = new Point(423, 392);
-        passwordStrengthBar.Margin = new Padding(5, 6, 5, 6);
+        passwordStrengthBar.Location = new Point(247, 196);
         passwordStrengthBar.Name = "passwordStrengthBar";
-        passwordStrengthBar.Size = new Size(442, 64);
+        passwordStrengthBar.Size = new Size(258, 32);
         passwordStrengthBar.TabIndex = 6;
         // 
         // strengthLabel
         // 
         strengthLabel.AutoSize = true;
-        strengthLabel.Location = new Point(122, 414);
-        strengthLabel.Margin = new Padding(5, 0, 5, 0);
+        strengthLabel.Location = new Point(71, 196);
         strengthLabel.Name = "strengthLabel";
-        strengthLabel.Size = new Size(245, 30);
+        strengthLabel.Size = new Size(140, 15);
         strengthLabel.TabIndex = 7;
         strengthLabel.Text = "Password Strength: None";
         // 
         // passwordLengthTextBox
         // 
-        passwordLengthTextBox.Location = new Point(122, 632);
-        passwordLengthTextBox.Margin = new Padding(5, 6, 5, 6);
+        passwordLengthTextBox.Location = new Point(71, 316);
         passwordLengthTextBox.Name = "passwordLengthTextBox";
-        passwordLengthTextBox.Size = new Size(206, 68);
+        passwordLengthTextBox.Size = new Size(97, 24);
         passwordLengthTextBox.TabIndex = 8;
         passwordLengthTextBox.Text = "";
         // 
         // passwordLengthLabel
         // 
         passwordLengthLabel.AutoSize = true;
-        passwordLengthLabel.Location = new Point(122, 596);
-        passwordLengthLabel.Margin = new Padding(5, 0, 5, 0);
+        passwordLengthLabel.Location = new Point(71, 298);
         passwordLengthLabel.Name = "passwordLengthLabel";
-        passwordLengthLabel.Size = new Size(169, 30);
+        passwordLengthLabel.Size = new Size(97, 15);
         passwordLengthLabel.TabIndex = 9;
         passwordLengthLabel.Text = "Password Length";
         // 
         // disclaimerLabel
         // 
         disclaimerLabel.AutoSize = true;
-        disclaimerLabel.Location = new Point(33, 102);
-        disclaimerLabel.Margin = new Padding(5, 0, 5, 0);
+        disclaimerLabel.Location = new Point(19, 51);
         disclaimerLabel.Name = "disclaimerLabel";
-        disclaimerLabel.Size = new Size(1108, 30);
+        disclaimerLabel.Size = new Size(626, 15);
         disclaimerLabel.TabIndex = 10;
         disclaimerLabel.Text = "DISCLAIMER: This application is a simple project and is NOT intended to generate passwords for real world situations. ";
         // 
         // disclaimerLabel2
         // 
         disclaimerLabel2.AutoSize = true;
-        disclaimerLabel2.Location = new Point(164, 132);
+        disclaimerLabel2.Location = new Point(96, 66);
+        disclaimerLabel2.Margin = new Padding(2, 0, 2, 0);
         disclaimerLabel2.Name = "disclaimerLabel2";
-        disclaimerLabel2.Size = new Size(264, 30);
+        disclaimerLabel2.Size = new Size(150, 15);
         disclaimerLabel2.TabIndex = 11;
         disclaimerLabel2.Text = "Use at your own discretion.";
         // 
+        // errorLabel
+        // 
+        errorLabel.AutoSize = true;
+        errorLabel.Location = new Point(71, 213);
+        errorLabel.Name = "errorLabel";
+        errorLabel.Size = new Size(0, 15);
+        errorLabel.TabIndex = 12;
+        // 
         // Form1
         // 
-        AutoScaleDimensions = new SizeF(12F, 30F);
+        AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(1371, 900);
+        ClientSize = new Size(800, 450);
+        Controls.Add(errorLabel);
         Controls.Add(disclaimerLabel2);
         Controls.Add(disclaimerLabel);
         Controls.Add(passwordLengthLabel);
@@ -175,9 +175,8 @@ partial class Form1
         Controls.Add(enterPasswordTextBox);
         Controls.Add(generateButton);
         Controls.Add(assessButton);
-        Margin = new Padding(5, 6, 5, 6);
         Name = "Form1";
-        Text = "Form1";
+        Text = "Password Helper";
         Load += Form1_Load;
         ResumeLayout(false);
         PerformLayout();
@@ -197,4 +196,5 @@ partial class Form1
     private Label passwordLengthLabel;
     private Label disclaimerLabel;
     private Label disclaimerLabel2;
+    private Label errorLabel;
 }

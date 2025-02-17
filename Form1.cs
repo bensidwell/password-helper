@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 
 namespace PasswordHelper;
@@ -92,15 +93,27 @@ public partial class Form1 : Form
         if (passwordIsValid(userPassword))
         {
             strengthLabel.Text = "Password Strength: Invalid";
+            errorLabel.Text = "Please remove all white space";
             passwordStrengthBar.Value = 0;
+            return;
         }
-        else
+
+        // Reset error label
+        errorLabel.Text = "";
+
+        // Assess the strength of the password
+        int score = assessStrength(userPassword);
+        string strength = score switch
         {
-            // Assess the strength of the password
-            int score = assessStrength(userPassword);
-            strengthLabel.Text = "Password Strength: " + score;
-            passwordStrengthBar.Value = score;
-        }
+            > 80 => "Very Strong",
+            > 60 => "Strong",
+            > 20 => "Moderate",
+            _ => "Weak",
+        };
+
+        // Display the strength to the user
+        strengthLabel.Text = "Password Strength: " + strength;
+        passwordStrengthBar.Value = score;
     }
 
     /// <summary>
